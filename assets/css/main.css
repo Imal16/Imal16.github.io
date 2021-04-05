@@ -2482,7 +2482,7 @@
 
 	ol {
 		list-style: decimal;
-		margin: 0 0 2em 0;
+		margin: 1em 0 1em 0;
 		padding-left: 1.25em;
 	}
 
@@ -3163,66 +3163,49 @@
 	#banner {
 		background-attachment: scroll,							fixed;
 		background-color: #666;
-		background-image: url("images/overlay.png"), url("../../images/banner.jpg");
 		background-position: top left,						center center;
 		background-repeat: repeat,							no-repeat;
 		background-size: auto,							cover;
 		color: #fff;
-		padding: 12em 0 20em 0;
 		text-align: center;
 	}
 
 		#banner :last-child {
-			margin-bottom: 0;
+			margin-bottom: 1em;
 		}
 
 		#banner h2, #banner h3, #banner h4, #banner h5, #banner h6 {
 			color: #fff;
 		}
 
-		#banner h2 {
-			font-size: 3.5em;
-			line-height: 1em;
-			margin: 0 0 0.5em 0;
-			padding: 0;
+		#banner h1 {
+			color: white;
+  			line-height: 1.2;
+  			font-size: 3vw;
+			text-align: center;
 		}
 
 		#banner p {
 			font-size: 1.25em;
 			margin-bottom: 1.75em;
 		}
+		#banner video{
+			position: relative;
+			text-align: center;
+			max-height: 5%;
+			max-width: 100%; 
 
-		#banner input[type="submit"],
-		#banner input[type="reset"],
-		#banner input[type="button"],
-		#banner .button {
-			background-color: transparent;
-			box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5);
-			color: #fff;
-			min-width: 12em;
+			display: flex;			
 		}
+	.overlay{
+		position: absolute;
+		text-align: center;
+		top:30%;
+		left: 40%;
+		z-index:1;
+		
+	}
 
-			#banner input[type="submit"]:hover,
-			#banner input[type="reset"]:hover,
-			#banner input[type="button"]:hover,
-			#banner .button:hover {
-				background-color: rgba(255, 255, 255, 0.1);
-			}
-
-			#banner input[type="submit"]:active,
-			#banner input[type="reset"]:active,
-			#banner input[type="button"]:active,
-			#banner .button:active {
-				background-color: rgba(255, 255, 255, 0.2);
-			}
-
-			#banner input[type="submit"].primary,
-			#banner input[type="reset"].primary,
-			#banner input[type="button"].primary,
-			#banner .button.primary {
-				background: #fff;
-				color: #666 !important;
-			}
 
 /* Main */
 
@@ -3379,7 +3362,7 @@
 		/* Banner */
 
 			#banner {
-				padding: 10em 0 18em 0;
+				padding: 3em 0 0em 0;
 			}
 
 	}

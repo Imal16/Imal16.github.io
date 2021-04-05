@@ -6,6 +6,7 @@
 -->
 <html>
 	<head>
+		<title>Ihsaan/Imal16</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -20,11 +21,11 @@
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li>
-								<a href="#" class="icon solid fa-angle-down">Layouts</a>
+								<a href="#" class="icon solid fa-angle-down">Pages</a>
 								<ul>
-									<li><a href="generic.html">Generic</a></li>
-									<li><a href="contact.html">Contact</a></li>
-									<li><a href="elements.html">Elements</a></li>
+									<li><a href="generic.html">About Me</a></li>
+									<li><a href="contact.html">Coming Soon</a></li>
+									<li><a href="elements.html">Comming Soon</a></li>
 									<li>
 										<a href="#">Submenu</a>
 										<ul>
@@ -43,8 +44,13 @@
 
 			<!-- Banner -->
 				<section id="banner">
-					<h2>Welcome</h2>
-					<p>I'm buidling up my portfolio with projects here are some that have been completed .</p>
+					<video autoplay muted loop>
+					<source src='images/banner_vid.mp4' type='video/mp4'>		
+					</video>
+					<div class="overlay">
+						<h1>Welcome</h1>
+						<p>Here is part of my portfolio, feel free to explore.</p> 
+					  </div>	
 				</section>
 
 			<!-- Main -->
@@ -53,58 +59,31 @@
 					<section class="box special">
 						<header class="major">
 							<h2>Visualizing Artist Networks With Spotify</h2>
-							<p>Coded a client for Spotify's Web API; Good practice with REST APIs and APP & User Authorization(OAuth2.0). Built a network graph from the User's Top Artist and grouped then by genres.</br>
-								<p>How does App Auth work for Spotify's API?</p>
-								<ol>
-								<li>For Basic App Authentication, the application is registered with Spotify and they provide a CLient ID and Secret Key.</li>
-								<li>Those are sent via response to Spotify's Account Services where the return an Access Token if the information is valid.</li>
-								<li>The App User can now communicate with Spotify's Web API by including the User Acesss Token in the requests.</li>	
-								</ol>
-								<p>How does User Auth work for Spotify's API?</p>
-								<ol>
-								<li>Request User authorization for app to access data and log in to confirm identity.</li>
-								<li>Once this is confirmed, the App requests an Access Token and a Refresh Token.</li>
-								<li>Once the Access Token is received, the Application can request data from the Web API.</li>
-								<li>If the Access Token Expires, the APP posts the Refresh Token to request a new Access token.</li>	
-								</ol>
-							</p>
+							<p>Coded a client for Spotify's Web API; Good practice with REST APIs and APP & User Authorization(OAuth2.0). Built a network graph from the User's Top Artist and grouped then by genres.</p>
+							<p>How does App Auth work for Spotify's API?</p>
+							<ol>
+							<li>For Basic App Authentication, the application is registered with Spotify and they provide a CLient ID and Secret Key.</li>
+							<li>Those are sent via response to Spotify's Account Services where the return an Access Token if the information is valid.</li>
+							<li>The App User can now communicate with Spotify's Web API by including the User Acesss Token in the requests.</li>	
+							</ol>
+							<p>How does User Auth work for Spotify's API?</p>
+							<ol>
+							<li>Request User authorization for app to access data and log in to confirm identity.</li>
+							<li>Once this is confirmed, the App requests an Access Token and a Refresh Token.</li>
+							<li>Once the Access Token is received, the Application can request data from the Web API.</li>
+							<li>If the Access Token Expires, the APP posts the Refresh Token to request a new Access token.</li>	
+							</ol>
 						</header>
-						<span class="sub-page"><img src="images/spotify_image.PNG" alt="image of network graph of top artist and others."/></span>
-						<a href="Spotify_Example.html" target="_blank">To view an Interative version of the image click here.(Warning Can be very heavy on your browser)</a>
-					</section>
-
-					<section class="box special features">
-						<div class="features-row">
-							<section>
-								<span class="icon solid major fa-bolt accent2"></span>
-								<h3>Magna etiam</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-							</section>
-							<section>
-								<span class="icon solid major fa-chart-area accent3"></span>
-								<h3>Ipsum dolor</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-							</section>
-						</div>
-						<div class="features-row">
-							<section>
-								<span class="icon solid major fa-cloud accent4"></span>
-								<h3>Sed feugiat</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-							</section>
-							<section>
-								<span class="icon solid major fa-lock accent5"></span>
-								<h3>Enim phasellus</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-							</section>
-						</div>
+						<span class="image featured"><img src="images/spotify_image.PNG" alt="image of network graph of top artist and others."/></span>
+						<a href="Spotify_Example.html" target="_blank">To view an Interative version of the image click here.(Warning might be a bit heavy on your browser)</a>
+						<a href="https://github.com/Imal16/Spotify_Visualization" target="_blank">View Code</a>
 					</section>
 
 					<div class="row">
 						<div class="col-6 col-12-narrower">
 
 							<section class="box special">
-								<span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
+								<span class="image featured"><img src="images/image2.png" alt="" /></span>
 								<h3>Project 2</h3>
 								<p>Description for Project</p>								<ul class="actions special">
 									<li><a href="#" class="button alt">Learn More</a></li>
@@ -131,7 +110,6 @@
 			<!-- Footer -->
 				<footer id="footer">
 					<ul class="icons">
-						
 					</ul>
 					<ul class="copyright">
 						<li>&copy; All rights reserved.</li><li>Template Design: <a href="http://html5up.net">HTML5 UP</a></li>
