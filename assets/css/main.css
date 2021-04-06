@@ -2518,9 +2518,13 @@
 			}
 		.image.center{
 			display: block;
-			display: flex;
-			justify-content: center;
+			text-align: center;
+		}
+		.image.center img{
 			padding: 0 0 1em 0;
+			max-height: 100%;
+			max-width: 100%;
+			margin: auto;
 		}
 
 /* List */

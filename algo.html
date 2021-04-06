@@ -27,7 +27,7 @@
 										<ul>
 											<li><a href="index.html#main">Spotify Visualization</a></li>
 											<li><a href="algo.html">Algo Trader</a></li>
-											<li><a href="#">Code Names</a></li>
+											<li><a href="codename.html">Code Names</a></li>
 											<li><a href="#">Comming Soon</a></li>
 										</ul>
 									</li>
@@ -53,8 +53,20 @@
 							and hosted online over the course a whole day, and only had 3 cases(in which I participated in all): Oil trading, Liquidity Risk and Algo Trading.
 						</p>
 						<h4>How does the Algo Case works</h4>
-						<p>Explain here.</p>
-		
+						<p>There are four main securities which can be traded. $RITC which is an ETF composed of the stocks $BULL and $BEAR and USD as a currency. $BULL and $BEAR are traded in Canadian dollars,
+							while $RITC is traded in USD, this creates currency risk is the risk is not hedged/managed properly. The Traders receive tender offers (institutional requested lots)
+							to either buy or sell RITC. The Trader also has access to Redeem (1 RTIC => 1 BULL + 1 Bear) or Convert (1 BULL + 1 Bear => 1 RITC) RITC.
+						</p>
+						<p>
+						 Therefore, the program must be able to decide whether to accept a tender offer, how to offload the current shares held, whether to excercise an arbitrage via Redemption
+						 or Conversion of the ETF. The program is also allowed to trade irrespective of tender offers. For the 2021 competion the case was similar to the 2020 competition, however,
+						 my goal was slightly different. While I wanted to improve my algorithm, I also had to make the code was good, meaning readable, simple to understand, make use of OOP, and abstraction.
+						 Concordia has a history of attending RITC, so the goal was that after my time on the team, the code would be handed off to future teams so they can build on it. Unfortunately, since the 
+						 code is used for a competition, it will not be publically available, but can be view on request when doing a code review.
+						</p>
+						<a href="./pdfs/RITC2020_Case_Package.pdf" target="_blank">Clcik to view the case package for RITC 2020</a>
+						</br>
+						<a href="./pdfs/report.pdf" target="_blank">Click to view a same trading report of the algo case</a>
 					</div>
 				</section>
 
