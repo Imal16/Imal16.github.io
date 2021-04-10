@@ -41,4 +41,8 @@ $(document).ready(function(){
           // instead of a settings object
         ]
     });
+    $('.nav-link').on('click',function() {          //auto collapse nav bar when clicked link for mobile
+      $('.navbar-collapse').collapse('hide');
+    });
+
 });
