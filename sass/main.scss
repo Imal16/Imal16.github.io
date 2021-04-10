@@ -154,7 +154,7 @@ body {
 /*----------------------About---------*/
 main{
   .about-section{
-    background-color: whitesmoke;
+    background-color: white;
     p{
       font-size: 1.25em;
       font-family: Georgia, 'Times New Roman', Times, serif;
@@ -163,6 +163,7 @@ main{
   }
   .blog{
     .container{
+
       .carousel{
 
         .slick-next::before, .slick-prev::before{
@@ -209,6 +210,71 @@ main{
   }
 }
 
+
+/*-----------------------------------Media Query Spotify Iframe--------------------------*/
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+  #spot-song{
+    margin-left: 0rem;
+    margin-bottom: 1rem;
+  }
+  
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 350px) {
+  #spot-song{
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+ 
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 400px) {
+  #spot-song{
+    margin-left: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 500px) {
+  #spot-song{
+    margin-left: 5rem;
+    margin-bottom: 1rem;
+  }
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 768px) {
+  #spot-song{
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+}
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1024px) {
+  #spot-song{
+    margin-left: 3.5rem;
+    margin-bottom: 1rem;
+  }
+  
+}
+@media only screen and (min-width : 1200px) {
+  #spot-song{
+    margin-left: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+}
 
 
 footer {

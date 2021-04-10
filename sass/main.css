@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Recursive:wght@500&family=Yantramanav:wght@500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #e8e8e8;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Recursive', sans-serif;
+  font-family: 'Yantramanav', sans-serif;
+}
+
+.navbar {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.2vw;
+  padding: 1em 1em;
+  z-index: 1;
+  background-color: black;
+}
+
+.navbar .navbar-brand {
+  text-transform: uppercase;
+}
+
+.navbar .nav-link {
+  text-transform: uppercase;
+  padding-right: 3em;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: whitesmoke;
+}
+
+.navbar-dark .navbar-nav,
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: pink;
+}
+
+.navbar-dark .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
+  background-color: #ffe9ed;
+}
+
+.background-overlay {
+  /*media query the font size and header top*/
+  position: absolute;
+  width: 100%;
+  max-width: 100%;
+  /* Custom, iPhone Retina */
+  /* Extra Small Devices, Phones */
+  /* Small Devices, Tablets */
+  /* Medium Devices, Desktops */
+  /* Large Devices, Wide Screens */
+}
+
+@media only screen and (min-width: 320px) {
+  .background-overlay {
+    top: 15%;
+  }
+  .background-overlay h2 {
+    font-size: 1.75em;
+    font-weight: 400;
+    color: snow;
+    letter-spacing: 0.1em;
+  }
+  .background-overlay p {
+    font-size: 1em;
+    color: snow;
+    word-spacing: 0.1em;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .background-overlay {
+    top: 20%;
+  }
+  .background-overlay h2 {
+    font-size: 2em;
+    font-weight: 400;
+    color: snow;
+    letter-spacing: 0.1em;
+  }
+  .background-overlay p {
+    font-size: 0.75em;
+    color: snow;
+    word-spacing: 0.1em;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .background-overlay {
+    top: 15%;
+  }
+  .background-overlay h2 {
+    font-size: 3em;
+    font-weight: 400;
+    color: snow;
+    letter-spacing: 0.1em;
+  }
+  .background-overlay p {
+    font-size: 2em;
+    color: snow;
+    word-spacing: 0.1em;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .background-overlay {
+    top: 15%;
+  }
+  .background-overlay h2 {
+    font-size: 3.5em;
+    font-weight: 400;
+    color: snow;
+    letter-spacing: 0.1em;
+  }
+  .background-overlay p {
+    font-size: 2.5em;
+    color: snow;
+    word-spacing: 0.1em;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .background-overlay {
+    top: 25%;
+  }
+  .background-overlay h2 {
+    font-size: 3.5em;
+    font-weight: 400;
+    color: snow;
+    letter-spacing: 0.1em;
+  }
+  .background-overlay p {
+    font-size: 2em;
+    color: snow;
+    word-spacing: 0.1em;
+  }
+}
+
+/*----------------------About---------*/
+main .about-section {
+  background-color: white;
+}
+
+main .about-section p {
+  font-size: 1.25em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+main .blog .container .carousel .slick-next::before, main .blog .container .carousel .slick-prev::before {
+  color: black;
+  font-size: 1.75rem;
+}
+
+main .blog .container .carousel .slick-next:hover:before, main .blog .container .carousel .slick-prev:hover:before {
+  color: pink;
+}
+
+main .blog .container .carousel .card {
+  margin-top: 2rem;
+  margin-right: .5rem;
+  margin-left: .5rem;
+  margin-bottom: 2rem;
+  height: 450px;
+  outline: none !important;
+  -webkit-box-shadow: 0px 5px 20px #ffdae0;
+          box-shadow: 0px 5px 20px #ffdae0;
+}
+
+main .blog .container .carousel .card img {
+  height: 250px;
+}
+
+main .blog .container .carousel .card .card-body .btn {
+  background-color: black;
+  color: snow;
+  bottom: 5%;
+  position: absolute;
+}
+
+main .blog .container .carousel .card .card-body .btn:hover {
+  color: pink;
+}
+
+/*-----------------------------------Media Query Spotify Iframe--------------------------*/
+/* Custom, iPhone Retina */
+@media only screen and (min-width: 320px) {
+  #spot-song {
+    margin-left: 0rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 350px) {
+  #spot-song {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 400px) {
+  #spot-song {
+    margin-left: 2.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 500px) {
+  #spot-song {
+    margin-left: 5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 768px) {
+  #spot-song {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1024px) {
+  #spot-song {
+    margin-left: 3.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #spot-song {
+    margin-left: 2.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+footer {
+  background: black;
+  padding: 15px 0;
+  text-align: center;
+}
+
+footer a {
+  color: snow;
+  font-size: 20px;
+  padding: 10px;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+footer a:hover {
+  color: pink;
+}
+
+/*----------------Blog Styling-----------------*/
+.blog-image {
+  max-height: 500px;
+}
+
+.post-content {
+  background-color: white;
+}
+/*# sourceMappingURL=main.css.map */
