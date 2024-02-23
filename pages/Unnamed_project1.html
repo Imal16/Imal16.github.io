@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+
+    <!-------Font awesome---------->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!------------------Slcik Carousel-------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../css/main.css" type="text/css">
+
+    <title>Ihsaan Malek - Unnamed Project 1</title>
+  </head>
+    <header> <!--------------------------------------------------NAVIGATION---------------------------->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Ihsaan Malek</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link jst active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link jst" href="../index.html#site-main">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Projects
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item jst" href="Spotify_Visualization.html">Spotify Visualization</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item jst" href="Algo_Trader.html">Algo Trader</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item jst" href="Codenames.html">Codenames</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item jst" href="Unnamed_project1.html">Unnamed Project 1</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link jst" href="Food_for_thought.html">Food For Thought</a>
+                      </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <body>
+
+        <!-------------------Project Page------------------->
+        <!-- Page Content -->
+  <div class="container mt-5">
+
+    <div class="row">
+
+      <!-- Post Content Column -->
+      <div class="col-lg-8 mt-3">
+
+        <!-- Title -->
+        <h1 class="mt-4">Unnamed Project 1</h1>
+        <h4>Preview of a project I am currently working on - 2024</h4>
+        <hr>
+
+        <!-- Preview Image -->
+        <!--<img class="blog-image img-fluid rounded mx-auto d-block" src="../assets/Unnamed_project1_diagram.jpeg" alt=""> -->
+        <div style="width: 100%; height: 720px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:100%; height:720px" src="https://lucid.app/documents/embedded/808716f8-27f8-4627-a4d2-7b98ad5edbc9" id="~d7cxiVfu7Yi"></iframe></div>
+
+        <div class="post-content container py-2 my-3">
+          
+        <hr>
+        <!-- Post Content -->
+        <h3>Here's a brief decription of the design of the project</h3>
+          <p>
+            Disclaimer: I am not an expert in system design, and would welcome any feedback on the design/architecture.
+          </p>
+            <h4>Data Sources and API Manager </h4>
+						<p>
+              In terms of Data Sources, there's a mix of APIs and Webscrapers and the data from the responses are generally in json. Because I'm using Webscrapers I wanted to make sure 
+              I had a long enough cooldown so that my ip wouldn't get blocked or banned, I know some of the websites I'm scrapping uses Cloudflare so they might have a bot management service
+              or something to prevent scraping. 
+            </p>
+            <p>
+              It got to a point where I had multiple different data sources which had different request cooldown periods, different sources, and different frequency of retrieval 
+              (Some data was available to be pulled EOD while others T+1). To handle this I created an API manager which handles the pulling of the data. I thought it would be 
+              fun to explore Python's Asyncio because at work we started using threads for one of our service requests calls. Asyncio isn't the same as multi-threading, threading 
+              is preemptive, therefore it switches are according to its scheduler. Asyncio is for coroutines: the developer has the control to decide when tasks switch execution by
+              suspending certain task and resuming others.
+            </p>
+            <p>
+              Why use coroutines? I thought it would be interesting I tried finding different designs to handle this and couldn't really find one. The idea was I have multiple 
+              different API's with different cooldown periods therefore while API A is on cooldown API B can run, but at the same time some API might take longer to 
+              request the data due to the size of the resoonse and others are being inserted into the DB and some into a file store... This provides different opportunities to 
+              switch context while it waits.
+						</p>
+						<h4>Data Storage</h4>
+						<p>
+              There are two main data storages: 
+              </br>
+              <br>
+              1) I'm using Cockroach Labs Serverless DB, I came across Cockroach Labs while searching for various DB's to use  abd thought it would
+              be interesting to use. Their pitch is that they keep their DBs distributed and online to prevent interruptions and it is good for transaction-heavy workloads.
+            </br>
+            <br>
+            2) I'm using a file store to store .json files. Why not using Mongo DB (NoSQL db)? Well, the free tier has 5GB of data, and I've already surpassed that... Also to be
+              frank the data I'm collecting in .json files won't be used or read frequently. I don't have full usage of it at the moment, it will most likely
+              be used for future features.
+						</p>
+            <h4>Calculation Engine</h4>
+						<p>
+						 I don't really have a Calc Engine, it's really a module which has the models and logic used for various calculations. Some of these calculations are pretty intensive,
+             which is why I sepeate it as an entity of it's own. I've tried going from Pandas -> Vectorization -> Numpy -> Numba. Each improvment had a huge performance gain, 
+             however the final numbers seemed a bit off. It's something I have to revisit, but just for argument's sake, those calculation went from ~25 mins to ~ 86 seconds (performed 
+             on the largest data set, for smaller data sets I expect it to be nice and quick), but at the moment I prefer accuracy over performance. 
+            <br>
+            <br>
+             The calculations are done through batch jobs, since there are some calculations that are done daily, other are done weekly and monthly (after aggregating data)
+             Similarly to how the raw data is stored, some if reinserted into the database and others are stored into the file store.
+						</p>
+            <h4>Analytical Layer of Database</h4>
+						<p>
+						 Set of database tables and relations which hold some of the calculation which is going to be used by reporting layer and dashbord
+						</p>
+            <h4>Reporting Layer</h4>
+						<p>
+              Why have a Separate Reporting Layer and Dashboard Layer? 
+              This layer will have some logic and recommendation for users based on some logic and process
+						</p>
+            <h4>Dashboard/Visulization Layer</h4>
+						<p>
+              Synthesized information from the reporting layer + aditional Visualization and ability to explore information received by Visualization layer.
+						</p>
+        <hr>
+        <h3>Ideation/Feature process</h3>
+          <p>
+            When you have a blank slate project with endless possibiliies, I find it helpful to have some sort process to help decide the order of features to tackle
+            When I first started, I focused on the big building blocks: Data + Apis (without the manager), Data Models + Data Storage, Calculation Engine, Visualization (without dashboard).
+            Now that I have those core infrastructure built, I use the following process decide what to work on next:
+            0) Check the backlog which is organized by priority, take the highest priority item. But let's look at how I put an idea into the backlog and rank it (because that's probably more interesting)
+            1) Ideation: find an idea or topic. This can come from a tweet, an article I read, a section of a book, a podcast or interview I listened to, etc...
+            2.1) Given that idea, I try to judge how important it would be. Is it something I want immediately in the project or is it something that may be nice to have? Will the use be frequent or is it sporadically usefull?
+            2.2) Do I already have the data for that idea? How hard is the aquition of said data (How much work? Is it feasible? Do I have a source?) Do I have review or learn any theory ex: read a textbook chapter, read a book, research paper, review some math/stats?
+            3) After assesing all this information, I try to size the work effort and guesstimate if the reward is worth pursuing immediately or am I better off taking the top item from the backlog and place this idea somewhere in there as well.
+          </p>
+          <hr>
+      </div>
+        </div>
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+        <!-- Side Widget -->
+        <div class="card mt-5 mb-3">
+          <h5 class="card-header">Tech Stack Used</h5>
+          <div class="card-body">
+            <h4>Python, SQL</h4>
+            <h5>Notable Packages Used:</h5>
+            <p>Coming Soon...</p> 
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+
+
+
+        
+        <footer id="contact">
+            <a href="#">&copy; Ihsaan Malek</a>
+            <a href="mailto:malek.ihsaan@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/ihsaan-malek/" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="https://github.com/Imal16" target="_blank"><i class="fa fa-github"></i></a>
+          </footer>
+
+
+
+    <!------------------Jquery-------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    
+    <!---------Slick Carousel---------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
+
+    <!--------------Custom JS file--------->
+    <script src="../js/main.js"></script>
+
+
+    </body>
+</html>
