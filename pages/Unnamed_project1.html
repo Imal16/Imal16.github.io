@@ -88,6 +88,9 @@
           <p>
             Disclaimer: I am not an expert in system design, and would welcome any feedback on the design/architecture.
           </p>
+          <p>
+            Last Updated, April 07 2024
+          </p>
             <h4>Data Sources and API Manager </h4>
 						<p>
               In terms of Data Sources, there's a mix of APIs and Webscrapers and the data from the responses are generally in json. Because I'm using Webscrapers I wanted to make sure 
@@ -97,7 +100,7 @@
             <p>
               It got to a point where I had multiple different data sources which had different request cooldown periods, different sources, and different frequency of retrieval 
               (Some data was available to be pulled EOD while others T+1). To handle this I created an API manager which handles the pulling of the data. I thought it would be 
-              fun to explore Python's Asyncio because at work we started using threads for a couple of our service request calls. Asyncio isn't the same as multi-threading, threading 
+              fun to explore Python's Asyncio because at work we started using threading to speed up a couple of our service request calls. Asyncio isn't the same as multi-threading, threading 
               is preemptive, therefore it switches according to its scheduler. Asyncio is for coroutines: the developer has the control to decide when tasks switch execution by
               suspending certain tasks and resuming others.
             </p>
@@ -109,31 +112,38 @@
 						</p>
 						<h4>Data Storage</h4>
 						<p>
-              There are two main data storages: 
+              There are three main data storages: 
               </br>
               <br>
               1) I'm using Cockroach Labs Serverless DB, I came across Cockroach Labs while searching for various DBs to use  and thought it would
               be interesting to use. Their pitch is that they keep their DBs distributed and online to prevent interruptions and it is good for transaction-heavy workloads.
             </br>
             <br>
-            2) I'm using a file store to store .json files. Why not use Mongo DB (NoSQL db)? Well, the free tier has 5GB of data, and I've already surpassed that... Also to be
-              frank the data I'm collecting in .json files won't be used or read frequently. I don't have full usage of it at the moment, it will most likely
-              be used for future features.
+            2) I'm using a file store to store .json files and ceertains .csv. The reasoning behind is that this data is not frequently read, therefore there is any strong use case
+            for me to put it on the cloud DB and eat away at the storage ressources. They get downloaded, used for calculations and then those calculations are stored in the DBs. 
+            They remain as a source to cross-check or refernce the calculations.
+          </br>
+          <br>
+            3) With improvement to my calculations runtime, I started looking at Mongo DB for a cloud NoSQL storage. I am still in the process of implementing and designing how this will be used.
+             But the plan is to have some of the calculations be stored in there and query the DB for the reporting and Dashboard layer.
 						</p>
             <h4>Calculation Engine</h4>
 						<p>
-						 I don't really have a Calc Engine, it's a module that has the models and logic used for various calculations. Some of these calculations are pretty intensive,
-             which is why I separate it as an entity of its own. I've tried going from Pandas -> Vectorization -> Numpy -> Numba. Each improvement had a huge performance gain, 
-             however the final numbers seemed a bit off. It's something I have to revisit, but just for argument's sake, those calculations went from ~25 mins to ~ 86 seconds (performed 
-             on the largest data set, for smaller data sets I expect it to be nice and quick), but at the moment I prefer accuracy over performance. 
+						 My Calc Engine, is my module that has the models and logic used for various calculations. Initially, some of these calculations are pretty intensive
+             and had taken a long time to run. I've tried going from Pandas -> Vectorization -> Numpy -> Numba. Each improvement had a huge performance gain, 
+             however when using Numba, I noticed a reduciton in accuracy in some of those calculations. That was to be expected since Numba njit requires the code to be basic Python
+             without 3rd party libraries. The calculation perfomance went from ~15 mins to ~ 86 seconds (performed on the largest data set). This was painful becuase I wanted to perform these
+             calculations often and with different inputs. Eventually I took a look at Polars and got an spectacular performance uplift. It took a while to re-write some of these calculations.
+             I tried using good polars practice by vectorizing most of the code to make use of Polars parallelization properties. Final result: ~4 seconds calculation runtime for the same large dataset.
+            I haven't fully converted all my code to polars for the sole reason that some of their functions are marked as unstable meaning their functionality or definitions might change in the future,
+            but have really enjoyed the impact polars' perfomance improvement in my project.
             <br>
             <br>
-             The calculations are done through batch jobs, some calculations that are done daily, and others are done weekly, and monthly (after aggregating data)
-             Similarly to how the raw data is stored, some if reinserted into the database, and others are stored into the file store.
+             The calculations are done through batch jobs, some calculations that are done daily, others weekly, and others monthly (after aggregating data).
 						</p>
             <h4>Analytical Layer of Database</h4>
 						<p>
-            This is where I have the Data models the relations and tables in which the calculations are stored in the DB. These will feed into both the Reporting Layer and Visualization Layer
+            This is where I have the Data models, the relations and tables in which the calculations are stored in the DB. These will feed into both the Reporting Layer and Visualization Layer
 						</p>
             <h4>Reporting Layer</h4>
 						<p>
